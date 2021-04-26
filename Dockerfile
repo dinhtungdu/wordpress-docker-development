@@ -1,5 +1,7 @@
 FROM wordpress:latest
 
+# Install xdebug
+# This part is taken from https://github.com/andreccosta/wordpress-xdebug-dockerbuild
 ENV XDEBUG_PORT 9000
 ENV XDEBUG_IDEKEY docker
 
