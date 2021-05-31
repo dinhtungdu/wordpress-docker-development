@@ -17,10 +17,12 @@ RUN echo "xdebug.mode=debug" >> /usr/local/etc/php/conf.d/xdebug.ini && \
 RUN apt-get update && \
     apt-get upgrade -y && \
     apt-get install -y git && \
+    apt-get install -y hub && \
+    apt-get install -y zsh && \
     apt-get install -y zip
 
 # Install nvm and node
-SHELL ["/bin/bash", "--login", "-c"]
+SHELL ["/usr/bin/zsh", "--login", "-c"]
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
 RUN nvm install --lts
 
@@ -34,3 +36,6 @@ RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli
         
 # Start the ssh-agent in the background.
 RUN eval "$(ssh-agent -s)"
+
+# Install ZIM for better zsh
+curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh | zsh
