@@ -21,8 +21,9 @@ RUN apt-get update && \
     apt-get install -y zsh && \
     apt-get install -y zip
 
+SHELL ["/bin/bash", "--login", "-c"]
+
 # Install nvm and node
-SHELL ["/usr/bin/zsh", "--login", "-c"]
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
 RUN nvm install --lts
 
@@ -39,3 +40,7 @@ RUN eval "$(ssh-agent -s)"
 
 # Install ZIM for better zsh
 RUN curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh | zsh
+
+RUN chsh -s ~/.zshrc
+
+CMD [ "zsh" ]
