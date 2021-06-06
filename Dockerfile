@@ -40,7 +40,3 @@ RUN eval "$(ssh-agent -s)"
 
 # Install ZIM for better zsh
 RUN curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh | zsh
-
-RUN chsh -s ~/.zshrc
-
-CMD [ "zsh" ]
