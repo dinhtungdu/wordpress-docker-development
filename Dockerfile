@@ -40,3 +40,7 @@ RUN eval "$(ssh-agent -s)"
 
 # Install ZIM for better zsh
 RUN curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh | zsh
+
+RUN echo "\nexport NVM_DIR=~/.nvm" >> ~/.zshrc
+RUN echo '[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"' >> ~/.zshrc
+RUN source ~/.zshrc 
