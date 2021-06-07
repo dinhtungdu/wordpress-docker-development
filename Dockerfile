@@ -44,3 +44,5 @@ RUN curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zs
 RUN echo 'export NVM_DIR=~/.nvm' >> ~/.zshrc
 RUN echo '[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"' >> ~/.zshrc
 RUN source ~/.zshrc 
+
+WORKDIR /var/www/html
